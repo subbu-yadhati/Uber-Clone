@@ -49,7 +49,7 @@ const CaptainHome = () => {
 
       <div className='fixed p-3 top-0 flex items-center justify-between w-screen'>
         <img className='w-16' src={UberLogo} alt="" />
-        <Link to={'/home'} className='h-10 w-10 bg-white flex items-center justify-center rounded-full'>
+        <Link to={'/captain-home'} className='h-10 w-10 bg-white flex items-center justify-center rounded-full'>
           <i className="ri-logout-box-fill text-xl font-medium"></i>
         </Link>
       </div>

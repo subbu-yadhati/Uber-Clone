@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SampleUse from '../assets/SampleUse.png'
 import { Link } from 'react-router-dom'
 
 const ConformRidePopup = (props) => {
+
+  const [otp,setopt]=useState('');
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+  }
   return (
     <div >
       <h5 onClick={() => { props.setRidePopupPanel(false) }} className='p-3 w-full text-center absolute top-0'><i className="ri-arrow-down-wide-line text-3xl"></i></h5>
@@ -42,8 +48,21 @@ const ConformRidePopup = (props) => {
             </div>
           </div>
         </div>
-        <Link to={'/captain-riding'} onClick={() => { }} className='w-full mt-5 flex items-center justify-center bg-green-400 font-semibold p-2 rounded-lg'>Conform</Link>
-        <button onClick={() => { props.setConformRidePopupPanel(false), props.setRidePopupPanel(false)}} className='w-full mt-5 bg-red-500 font-semibold text-white p-2 rounded-lg'>Cancel</button>
+    
+        <div className=' '>
+          <form action="" onSubmit={(e)=>{
+            submitHandler(e)
+          }}>
+            <input
+            value={otp}
+            onChange={(e)=>{setopt(e.target.value)}}
+            className='bg-[#eeeeee] px-10 py-2 border text-base rounded-lg w-full mt-5' 
+            type="text" placeholder='Enter OTP' />
+            
+            <Link to={'/captain-riding'} onClick={() => { }} className='w-full mt-5 flex items-center justify-center bg-green-400 font-semibold p-2 rounded-lg'>Conform</Link>
+            <button onClick={() => { props.setConformRidePopupPanel(false), props.setRidePopupPanel(false) }} className='w-full mt-5 bg-red-500 font-semibold text-white p-2 rounded-lg'>Cancel</button>
+          </form>
+        </div>
       </div>
     </div>
   )
